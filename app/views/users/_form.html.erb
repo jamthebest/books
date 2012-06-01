@@ -14,39 +14,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
+    <%= f.input :nombre %>
   </div>
   <div class="field">
-    <%= f.label :apellido %><br />
-    <%= f.text_field :apellido %>
+    <%= f.input :apellido %>
   </div>
   <div class="field">
-    <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
+    <%= f.input :sexo, :as => :radio_buttons %>
   </div>
   <div class="field">
-    <%= f.label :fecha_nac %><br />
-    <%= f.date_field :fecha_nac %>
+    <%= f.input :fecha_nac, :as => :date, :start_year => Date.today.year - 90,
+					:end_year => Date.today.year - 12, 
+          :order => [:month, :year] %>
   </div>
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.input :username %>
   </div>
   <div class="field">
-    <%= f.label :email%><br />
-    <%= f.text_field :email %>
+    <%= f.input :email %>
   </div>
   <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.input :password %>
   </div>
    <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.input :password_confirmation %>
   </div>
-  
-  
   
   <div class="actions">
     <%= f.submit %>

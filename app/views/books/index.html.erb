@@ -4,10 +4,15 @@
 <ol>  
 	<%@books.each do |book|%>
 		<li> 
-				<%=book.description%>
+				<%=book.titulo %>
+				<%=book.autor %>
 				<%= link_to "Mostrar", book%>
 				<%= link_to "Borrar", book, :method=> :delete, :confirm=> "Estas Seguro??"%>
 				<%= link_to "Editar", edit_book_path(book.id)%>
 		</li>
 	<%end%>
 </ol>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
