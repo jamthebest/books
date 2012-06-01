@@ -1,0 +1,35 @@
+
+
+<%=simple_form_for @book do |f|%>
+		
+	<% if @book.errors.any?%>
+		<h2>There were errors!</h2>
+		<ul>
+			<% @book.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg %>
+				</li>
+			<% end %>
+		</ul>
+	<%end%>
+
+	<p>
+		<%=f.input :titulo %>
+		<%=f.input :autor %>
+		<%=f.input :tipo %>
+		<%=f.input :edicion %>
+		<%=f.input :descripcion %>
+		<label for="t_prestamo"><b>Tiempo de Prestamo :</b></label>
+		<select name="proveedor[prestamo]" class="comboBox">
+			<option value=1>Dias</option>
+			<option value=1>Meses</option>	
+		</select>
+		<%=f.input :t_prestamo, :as => :integer %>
+				
+	</p>
+	
+	<p>
+		<%=f.submit %>
+	</p>
+	
+<%end%>

@@ -1,32 +1,24 @@
 Books::Application.routes.draw do
-  get "user/index"
+	
+  get "books/index"
 
-  get "user/show"
+  get "books/show"
 
-  get "user/new"
+  get "books/new"
 
-  get "user/create"
+  get "books/create"
 
-  get "user/edit"
+  get "books/edit"
 
-  get "user/update"
+  get "books/update"
 
-  get "user/destroy"
+  get "books/destroy"
 
-  get "book/index"
+	root to: "books#index"	
 
-  get "book/show"
-
-  get "book/new"
-
-  get "book/create"
-
-  get "book/edit"
-
-  get "book/update"
-
-  get "book/destroy"
-
+	resources :books
+	resources :users
+	resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
