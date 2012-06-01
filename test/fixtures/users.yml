@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  username: MyString
+  email: MyString
+  nombre: MyString
+  apellido: MyString
+  contraseña: MyString
+  sexo: false
+  fecha_nac: 2012-05-31 18:38:54
+  reputacion: 1
+
+two:
+  username: MyString
+  email: MyString
+  nombre: MyString
+  apellido: MyString
+  contraseña: MyString
+  sexo: false
+  fecha_nac: 2012-05-31 18:38:54
+  reputacion: 1
