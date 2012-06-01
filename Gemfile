@@ -38,3 +38,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'therubyracer', group: :development
 gem 'rb-readline'
+
+gem 'simple_form'
+gem 'country_select'
