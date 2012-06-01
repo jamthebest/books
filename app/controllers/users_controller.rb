@@ -1,5 +1,5 @@
-class UserController < ApplicationController
-  def index
+class UsersController < ApplicationController
+def index
      @users = User.all
 
     respond_to do |format|
@@ -65,5 +65,6 @@ class UserController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
-  end
+  	end
+	end
 end
