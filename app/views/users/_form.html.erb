@@ -1,14 +1,11 @@
-
-
 <%= simple_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -20,12 +17,13 @@
     <%= f.input :apellido %>
   </div>
   <div class="field">
-    <%= f.input :sexo, :as => :radio_buttons %>
+    <%= f.label :sexo%>
+    <%= f.collection_radio_buttons :sexo, [[true, 'Hombre'] ,[false, 'Mujer']], :first, :last, :checked => true %>
   </div>
   <div class="field">
-    <%= f.input :fecha_nac, :as => :date, :start_year => Date.today.year - 90,
+    <%= f.input :fecha_nac, :label =>'Fecha de Nacimiento', :as => :date, :start_year => Date.today.year - 90,
 					:end_year => Date.today.year - 12, 
-          :order => [:month, :year] %>
+          :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.input :username %>
