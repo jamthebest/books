@@ -3,10 +3,10 @@ class Book < ActiveRecord::Base
   validates_presence_of :autor, :t_prestamo, :tipo, :titulo
 
   def self.search(search)
-	  if search
-	    where('titulo LIKE ?', "%#{search}%")
+  	if search
+    	find(:all, :conditions => ['titulo LIKE ?', "%#{search}%"])
 	  else
-	    scoped
-	  end
+  	  find(:all)
+  	end
 	end
 end

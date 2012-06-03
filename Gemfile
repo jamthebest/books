@@ -20,7 +20,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'will_paginate', '3.0.pre2'
+group :development do
+	gem 'sunspot_solr'
+end
+
+gem 'sunspot_rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
