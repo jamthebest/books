@@ -1,15 +1,17 @@
 
 
 <h1>All Books</h1>
-<ol>  
-	<%@books.each do |book|%>
-		<li> 
+<ol>
+	<% if @books %>
+		<% @books.each do |book|%>
+			<li> 
 				<%=book.titulo %>
 				<%=book.autor %>
 				<%= link_to "Mostrar", book%>
 				<%= link_to "Borrar", book, :method=> :delete, :confirm=> "Estas Seguro??"%>
 				<%= link_to "Editar", edit_book_path(book.id)%>
-		</li>
+			</li>
+		<%end%>
 	<%end%>
 </ol>
 
