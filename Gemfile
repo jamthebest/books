@@ -24,7 +24,6 @@ group :development do
 	gem 'sunspot_solr'
 end
 
-gem 'sunspot_rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
