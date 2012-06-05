@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
   def create
     if logged_in?
-  	  @review = Comment.create params[:review]
+  	  @review = Review.create params[:review]
       @review[:user] = current_user.id
       @review[:book] = params["book"].to_i
       respond_to do |format|

@@ -9,8 +9,8 @@ class ComentariosController < ApplicationController
 
   def create
     if logged_in?
-      @comment = Comentario.create params[:comentario]
-      @comment[:user] = current_user.id
+      @comment = Comentario.new(params[:comentario])
+      @comment[:user_id] = current_user.id
       @comment[:perfil] = params["perfil"].to_i
       respond_to do |format|
         if @comment.save
