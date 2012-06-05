@@ -10,35 +10,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.input :nombre %>
-  </div>
-  <div class="field">
-    <%= f.input :apellido %>
-  </div>
-  <div class="field">
-    <%= f.label :sexo%>
-    <%= f.collection_radio_buttons :sexo, [[true, 'Hombre'] ,[false, 'Mujer']], :first, :last, :checked => true %>
-  </div>
-  <div class="field">
-    <%= f.input :fecha_nac, :label =>'Fecha de Nacimiento', :as => :date, :start_year => Date.today.year - 90,
-					:end_year => Date.today.year - 12, 
+  <%= f.input :nombre %>
+  <%= f.input :apellido %>
+  <%= f.label :sexo%>
+  <%= f.collection_radio_buttons :sexo, [[true, 'Hombre'] ,[false, 'Mujer']], :first, :last, :checked => true %>
+  <%= f.input :fecha_nac, :label =>'Fecha de Nacimiento', :as => :date, :start_year => Date.today.year - 90,
+	   			:end_year => Date.today.year - 12, 
           :order => [:day, :month, :year] %>
-  </div>
-  <div class="field">
-    <%= f.input :username %>
-  </div>
-  <div class="field">
-    <%= f.input :email %>
-  </div>
-  <div class="field">
-    <%= f.input :password %>
-  </div>
-   <div class="field">
-    <%= f.input :password_confirmation %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.submit %>
 <% end %>
