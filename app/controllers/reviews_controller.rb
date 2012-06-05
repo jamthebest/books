@@ -10,11 +10,11 @@ class ReviewsController < ApplicationController
   def create
     if logged_in?
   	  @review = Review.create params[:review]
-      @review[:user] = current_user.id
-      @review[:book] = params["book"].to_i
+      @review[:user_id] = current_user.id
+      @review[:book_id] = params["book_id"].to_i
       respond_to do |format|
         if @review.save
-          format.html { redirect_back_or_to book_path(@review.book) }
+          format.html { redirect_to book_path(@review.book_id) }
           format.json { render json: @review, status: :created, location: @review }
         else
           format.html { redirect_to root_url }
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
         end
       end
     else
-      flash[:error] = "Necesitas Autenticarte para realizar esta operación!"
+      flash[:error] = "Necesitas Autenticarte para hacer esto!"
       redirect_to login_path
     end
   end

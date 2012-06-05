@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605162700) do
+ActiveRecord::Schema.define(:version => 20120605193616) do
 
   create_table "books", :force => true do |t|
     t.string   "titulo"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120605162700) do
     t.integer  "user_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.boolean  "prestamo"
   end
 
   create_table "comentarios", :force => true do |t|
@@ -36,10 +37,10 @@ ActiveRecord::Schema.define(:version => 20120605162700) do
 
   create_table "reviews", :force => true do |t|
     t.string   "contenido"
-    t.integer  "user"
-    t.integer  "book"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "book_id"
   end
 
   create_table "users", :force => true do |t|

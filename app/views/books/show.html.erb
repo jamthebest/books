@@ -1,27 +1,23 @@
 <p>
-	Dueño: <%= "#{Book.find(@book.user).username}" %>
-	Título: <%=@book.titulo%>
-	Autor: <%=@book.autor%>	
-	Tipo: <%= @book.tipo %>
-	Edición: <%= @book.edicion %>
-	Descripción: <%= @book.descripcion %>
-	Tiempo de préstamo: <%= @book.t_prestamo %>
-	Disponible: <% if @book.disponibilidad %>
-								<%= "Si"%>
-							<% else %>
-								<%= "No" %>
-							<% end %>
+	<p>Dueño: <%= "#{User.find(@book.user_id).username}" %></p>
+	<p>Título: <%=@book.titulo%></p>
+	<p>Autor: <%=@book.autor%></p>
+	<p>Tipo: <%= @book.tipo %></p>
+	<p>Edición: <%= @book.edicion %></p>
+	<p>Descripción: <%= @book.descripcion %></p>
+	<p>Tiempo de préstamo: <%= "#{@book.t_prestamo} #{@book.prestamo ? "Dias" : "Meses" }" %></p>
+	<p>Disponible: <% "#{@book.disponibilidad ? "Si" : "No" }" %></p>
 
 	<%= simple_form_for @review do |f| %>
 		<%= "Agregue la primera reseña!" %>
-  	<%= f.input :content, :as => :text %>
-  	<%= hidden_field_tag(:book, @book.id) %>
+  	<%= f.input :contenido, :as => :text %>
+  	<%= hidden_field_tag(:book_id, @book.id) %>
   	<%= f.submit %>
 	<% end %>
 </p>
-<%(Review.where book: @book.id).sort{|x,y| x.created_at <=> y.created_at}.each do |review|%>
+<%(Review.where book_id: @book.id).sort{|x,y| x.created_at <=> y.created_at}.each do |review|%>
 	<ul id="review_list">
-		<li><p><h4><%= "#{review.user} escribió:" %></h4></p></li>
-		<p><h5><%= review.content %></h5></p>
+		<li><p><h4><%= "#{User.find(review.user_id).username} escribió:" %></h4></p></li>
+		<p><h5><%= review.contenido %></h5></p>
 	</ul>
 <% end %>

@@ -22,7 +22,7 @@ class ComentariosController < ApplicationController
         end
       end
     else
-      flash[:error] = "Necesitas Autenticarte para realizar esta operación!"
+      flash[:error] = "Necesitas Autenticarte para hacer esto!"
       redirect_to login_path
     end
   end
