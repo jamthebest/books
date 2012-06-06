@@ -1,10 +1,11 @@
 Books::Application.routes.draw do
-	
+
   resources :books
   resources :sessions
 	resources :users
   resources :comentarios
   resources :reviews
+  resources :notifications
   root to: "home#index"
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

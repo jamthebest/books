@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
     validates_presence_of :apellido, :email, :fecha_nac, :nombre, :sexo, :username
 
   has_many :comentarios
+  has_many :notifications
 end
