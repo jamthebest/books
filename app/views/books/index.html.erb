@@ -1,6 +1,12 @@
 
 
 <h1>All Books</h1>
+<% form_tag books_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :titulo => nil %>
+  </p>
+<% end %>
 <ol>
 	<% if @books %>
 		<% @books.each do |book|%>
@@ -17,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Agregar libro', new_book_path %>

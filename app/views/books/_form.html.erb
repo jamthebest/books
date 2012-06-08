@@ -19,11 +19,7 @@
 		<%=f.input :tipo %>
 		<%=f.input :edicion %>
 		<%=f.input :descripcion %>
-		<label for="t_prestamo"><b>Tiempo de Prestamo :</b></label>
-		<select name="proveedor[prestamo]" class="comboBox">
-			<option value=1>Dias</option>
-			<option value=1>Meses</option>	
-		</select>
+		<%= f.collection_radio_buttons :prestamo, [[true, 'Dias'] ,[false, 'Meses']], :first, :last, :checked => true %>
 		<%=f.input :t_prestamo, :as => :integer %>
 	</p>
 	

@@ -1,0 +1,17 @@
+<h1>Notificaciones</h1>
+<ol>
+	<% if @notifications %>
+		<% @notifications.each do |noti|%>
+			<li> 
+				<%= (noti.description.slice(0..10) + (!noti.leido ? " (Nuevo)" : "" )) %>
+				<%= "de #{User.find(noti.user_id)}" %>
+				<%= link_to "Ver", noti%>
+				<%= link_to "Borrar", noti, :method=> :delete, :confirm=> "Estas Seguro??"%>
+			</li>
+		<%end%>
+	<%end%>
+</ol>
+
+<br />
+
+<%= link_to 'Agregar libro', new_book_path %>
