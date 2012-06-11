@@ -5,6 +5,7 @@
 			<li> 
 				<%= (noti.description.slice(0..10) + (!noti.leido ? " (Nuevo)" : "" )) %>
 				<%= "de #{User.find(noti.user_id)}" %>
+				<a class="btn btn-inverse" href=<%=noti_path(noti.id)%>> Ver </a>
 				<%= link_to "Ver", noti%>
 				<%= link_to "Borrar", noti, :method=> :delete, :confirm=> "Estas Seguro??"%>
 			</li>
@@ -14,4 +15,4 @@
 
 <br />
 
-<%= link_to 'Agregar libro', new_book_path %>
+<a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a>

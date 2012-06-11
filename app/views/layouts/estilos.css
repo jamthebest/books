@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  line-height: 18px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+.nav li a{
+	float: .pull-right;
+	color: white;
+	border: 1px solid red;
+}
+
+
+
+
+a:link { color: red; }
+
+
+
+h1 {
+	font-family: Georgia, sans-serif;
+}
+
+h1, p {
+	padding:20px;
+}
+
+.titularDiferente {
+	color:green;
+}
+
+p {
+	background-color:aqua;
+}
+
+p span {
+	background-color:blue;
+	color:white;
+}
+
+.alerta {
+	background-color:red;
+}
+
+p span.alerta {
+	font-size:20px;
+}
+
+p.introduccion .alerta {
+
+}
+
+p span {
+
+}
+
+.cuadroRojo {
+	background-color:red;
+	width:200px;
+	height:200px;
+	border:5px solid green;
+	padding:20px;
+	margin:20px;
+}

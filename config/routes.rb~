@@ -3,13 +3,13 @@ Books::Application.routes.draw do
   resources :books
   resources :sessions
   resources :users
-#<<<<<<< HEAD
+
 	resources :comentarios
-#=======
+
   resources :comentarios
   resources :reviews
   resources :notifications
-#>>>>>>> 2c05d65856763c0beb1797f8206b8c873954ccdb
+
   root to: "home#index"
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

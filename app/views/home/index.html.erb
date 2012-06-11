@@ -1,17 +1,13 @@
 <h1>Book Store</h1>
 <p><h4>Descripción</h4></p>
-<p>Book Store es un servicio de intercambio de libros entre usuarios, donde cada usuario puede disponer de los
-	libros que los demás usuarios están dispuestos a prestar. Cada usuario puede poner a disposición de los demás
-	los libros que posea, que desea compartir y por el tiempo que está dispuesto a prestar.
+<p>
+	Book Store es un servicio de intercambio de libros entre usuarios, donde cada usuario</br> puede disponer de los libros que los demás usuarios están dispuestos a prestar. Cada</br> usuario puede poner a disposición de los demás los libros que posea, que desea com-</br>partir y por el tiempo que está dispuesto a prestar.
+</p>
+<p> 
+	Este sistema dispone de un analizador de reputación donde se analiza al usuario y se</br> establece un rango donde se conoce si el usuario es confiable o nó. Este rango se es-</br>tablece conforme al tiempo de devolución que el usuario haga de los libros.
 </p>
 <p>
-	Este sistema dispone de un analizador de reputación donde se analiza al usuario y se establece un rango donde
-	se conoce si el usuario es confiable o nó. Este rango se establece conforme al tiempo de devolución que el 
-	usuario haga de los libros.
-</p>
-<p>
-	Cada usuario puede hacer una reseña de los libros que haya utilizado o de los que le parecen que serían una
-	buena elección al momento de utilizar para su lectura.
+	Cada usuario puede hacer una reseña de los libros que haya utilizado o de los que le </br>parecen que serían una buena elección al momento de utilizar para su lectura.
 </p>
 
 <% form_tag books_path, :method => 'get' do %>
@@ -20,5 +16,7 @@
     <%= submit_tag "Buscar", :titulo => nil %>
   </p>
 <% end %>
-<%= link_to "Ver Libros", books_path %>
-<%= link_to "Ver Usuarios", users_path %>
+<div class="container">
+<a class="btn btn-inverse" href=<%=books_path%>> Ver Libros </a>
+<a class="btn btn-inverse" href=<%=users_path%>> Ver Usuarios </a>
+</div>

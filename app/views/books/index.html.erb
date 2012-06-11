@@ -13,14 +13,14 @@
 			<li> 
 				<%=book.titulo %>
 				<%=book.autor %>
-				<%= link_to "Mostrar", book%>
+				<a class="btn btn-inverse" href=<%=book_path(book.id)%>> Mostrar </a>
+				<a class="btn btn-inverse" href=<%=book_path(book.id)%>> Borrar </a>
 				<%= link_to "Borrar", book, :method=> :delete, :confirm=> "Estas Seguro??"%>
-				<%= link_to "Editar", edit_book_path(book.id)%>
+				<a class="btn btn-inverse" href=<%=edit_book_path(book.id)%>> Editar </a>
 			</li>
 		<%end%>
 	<%end%>
 </ol>
 
 <br />
-
-<%= link_to 'Agregar libro', new_book_path %>
+<a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a>
