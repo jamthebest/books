@@ -13,7 +13,9 @@
   <tr>
     <td><%= user.email %></td>
     <td><%= user.username %></td>
-    <td><%= link_to 'Show', user %></td>
+    <td><a class="btn btn-inverse" href=<%=user_path(user)%>> Show </a></td>
+    <td> <%= link_to 'Show', user %></td>
+    <td><a class="btn btn-inverse" href=<%=edit_user_path(user)%>> Edit </a></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -21,5 +23,4 @@
 </table>
 
 <br />
-
-<%= link_to 'New User', new_user_path %>
+<a class="btn btn-inverse" href=<%=new_user_path%>> Nuevo Usario </a>

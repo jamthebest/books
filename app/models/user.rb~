@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :username, :email
     validates_presence_of :apellido, :email, :fecha_nac, :nombre, :sexo, :username
 
-#<<<<<<< HEAD
+<<<<<<< HEAD
 		has_many :comentarios
-#=======
+=======
   has_many :comentarios
   has_many :notifications
-#>>>>>>> 2c05d65856763c0beb1797f8206b8c873954ccdb
+>>>>>>> 2c05d65856763c0beb1797f8206b8c873954ccdb
 end

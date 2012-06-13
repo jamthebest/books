@@ -35,7 +35,18 @@
 <h3>Comentarios:</h3>
 <%(Comentario.where perfil: @user.id).sort{|x,y| x.created_at <=> y.created_at}.each do |comment|%>
 	<ul id="comment_list">
+<<<<<<< HEAD
 		<li><p><h4><%= link_to "#{User.find(comment.user_id).username}", users_path(@user.id) %> escribió</h4></p></li>
+=======
+<!--<<<<<<< HEAD-->
+		<li><p><h4><%= "#{comment.user} escribió:" %></h4></p></li>
+		<p><h4><%= comment.contenido %></h4></p>
+	</ul>
+<% end %>
+<!--=======-->
+	<ul id="comment_list">
+		<li><p><h4><%= "#{User.find(comment.user_id).username} escribió:" %></h4></p></li>
+>>>>>>> 8bb62723740f2f8e09cee38767c30ca13637c0ab
 		<p><h4><%= comment.contenido %></h4></p>
 	</ul>
 <% end %>
