@@ -20,6 +20,7 @@
 		<%=f.input :edicion %>
 		<%=f.input :descripcion %>
 		<%= f.collection_radio_buttons :prestamo, [[true, 'Dias'] ,[false, 'Meses']], :first, :last, :checked => true %>
+		<%= hidden_field_tag(:noti, false) %>
 		<%=f.input :t_prestamo, :as => :integer %>
 	</p>
 	

@@ -2,18 +2,30 @@
 	<p>De: <%= "#{User.find(@notification.user_id).username}" %></p>
 	<p>Asunto: <%= @notification.description %></p>
 	<% if @notification.tipo == 1 %>
-		<p>El usuario <%= User.find(@notification.user_id).username desea que le prestes %>
-			<%= el libro Book.find(@notification.book_id).titulo %>
+		<p>El usuario <%= User.find(@notification.user_id).username %> desea que le prestes el libro <%= Book.find(@notification.book_id).titulo %>
 		</p>
 		<% if Book.find(@notification.book_id).disponibilidad %>
 			<%= simple_form_for @book do |f| %>
-				<%= "Deseas Prestarle el Libro?" %>
-	  		<%= f.collection_radio_buttons :disponibilidad,[[true, 'Si'],[false, 'No']], :first, :last, :checked => true %>
-		  	<%= f.submit %>
+				<%= hidden_field_tag(:noti, true) %>
+				<%= hidden_field_tag(:disponibilidad, false) %>
+				<%= hidden_field_tag(:user_pres, @notification.user_id) %>
+		  	<%= f.submit 'Prestar Libro'%>
 			<% end %>
 		<% else %>
 			<%= "No puedes prestar este libro porque ya lo tiene el usuario #{User.find(Book.find(@notification.book_id).user_id).username}!" %>
 		<% end %>
+
+	<%else%>
+		<% if @notification.tipo == 2 %>
+			<p>El usuario <%= User.find(@notification.user_id).username %> te devolvió el libro <%= Book.find(@notification.book_id).titulo %>?
+			</p>
+			<%= simple_form_for @book do |f| %>
+				<%= hidden_field_tag(:noti, true) %>
+				<%= hidden_field_tag(:disponibilidad, true) %>
+		  	<%= hidden_field_tag(:user_pres, 0) %>
+			 	<%= f.submit 'Si'%>
+			<% end %>
+		<% end %>
 	<% end %>
+	<a class="btn btn-inverse" href=<%=notifications_path%>> Atrás </a>
 </p>
-<% end %>
