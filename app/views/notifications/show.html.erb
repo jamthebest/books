@@ -6,18 +6,10 @@
 		</p>
 		<% if Book.find(@notification.book_id).disponibilidad %>
 			<%= simple_form_for @book do |f| %>
-<<<<<<< HEAD
 				<%= hidden_field_tag(:noti, true) %>
 				<%= hidden_field_tag(:disponibilidad, false) %>
 				<%= hidden_field_tag(:user_pres, @notification.user_id) %>
 		  	<%= f.submit 'Prestar Libro'%>
-=======
-				<%= "Deseas Prestarle el Libro?" %>
-	  		<%= f.collection_radio_buttons :disponibilidad,[[false, 'Si'],[true, 'No']], :first, :last, :checked => true %>
-	  		<%= hidden_field_tag(:user_pres, @notification.user_id) %>
-	  		<%= hidden_field_tag(:noti, true) %>
-		  	<%= f.submit 'Aceptar'%>
->>>>>>> 1770635a6c90d99a81e6936a5d10f180ebb7aebf
 			<% end %>
 		<% else %>
 			<%= "No puedes prestar este libro porque ya lo tiene el usuario #{User.find(Book.find(@notification.book_id).user_id).username}!" %>
@@ -28,17 +20,10 @@
 			<p>El usuario <%= User.find(@notification.user_id).username %> te devolvió el libro <%= Book.find(@notification.book_id).titulo %>?
 			</p>
 			<%= simple_form_for @book do |f| %>
-<<<<<<< HEAD
 				<%= hidden_field_tag(:noti, true) %>
 				<%= hidden_field_tag(:disponibilidad, true) %>
 		  	<%= hidden_field_tag(:user_pres, 0) %>
 			 	<%= f.submit 'Si'%>
-=======
-		  	<%= f.collection_radio_buttons :disponibilidad,[[true, 'Si'],[false, 'No']], :first, :last, :checked => true %>
-		  	<%= hidden_field_tag(:user_pres, 0) %>
-		  	<%= hidden_field_tag(:noti, true) %>
-			 	<%= f.submit 'Aceptar'%>
->>>>>>> 1770635a6c90d99a81e6936a5d10f180ebb7aebf
 			<% end %>
 		<% end %>
 	<% end %>

@@ -3,21 +3,9 @@
 	<% if @notifications %>
 		<% @notifications.each do |noti|%>
 			<li> 
-<<<<<<< HEAD
 				<%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %>
 				<%= "de #{User.find(noti.user_id).username}" %>
 				<a class="btn btn-inverse" href=<%=notification_path(noti.id)%>> Ver </a>
-=======
-<<<<<<< HEAD
-				<%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %>
-				<%= "de #{User.find(noti.user_id).username}" %>
-=======
-				<%= (noti.description.slice(0..10) + (!noti.leido ? " (Nuevo)" : "" )) %>
-				<%= "de #{User.find(noti.user_id)}" %>
-				<a class="btn btn-inverse" href=<%=noti_path(noti.id)%>> Ver </a>
->>>>>>> 8bb62723740f2f8e09cee38767c30ca13637c0ab
-				<%= link_to "Ver", noti%>
->>>>>>> 1770635a6c90d99a81e6936a5d10f180ebb7aebf
 				<%= link_to "Borrar", noti, :method=> :delete, :confirm=> "Estas Seguro??"%>
 			</li>
 		<%end%>
