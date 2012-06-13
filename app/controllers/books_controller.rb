@@ -61,7 +61,11 @@ class BooksController < ApplicationController
   	if params[:noti]
 			@book = Book.find(params[:id])
 			@book[:user_pres] = params[:user_pres].to_i
+<<<<<<< HEAD
 			@book[:disponibilidad] = params[:disponibilidad]
+=======
+
+>>>>>>> 1770635a6c90d99a81e6936a5d10f180ebb7aebf
 			respond_to do |format|
 				if @book.update_attributes(params[:book])
 					format.html { redirect_to @book, notice: 'Libro Prestado!.' }
