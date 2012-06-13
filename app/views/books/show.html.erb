@@ -10,25 +10,24 @@
 	<% if logged_in? && current_user.id != @book.user_id %>
 		<% if @book.disponibilidad %>
 			<%= simple_form_for @noti do |f| %>
-				<%= "Pedir Prestado?" %>
 	  		<%= hidden_field_tag(:description, "Prestamo de Libro") %>
 		  	<%= hidden_field_tag(:book_id, @book.id) %>
 		  	<%= hidden_field_tag(:receptor, @book.user_id) %>
 	  		<%= hidden_field_tag(:tipo, 1) %>
-  			<%= f.submit 'Si' %>
+  			<%= f.submit 'Pedir Prestado' %>
 			<% end %>
 		<% else %>
-			<% if current_user == @book.user_pres %>
+			<% if current_user.id == @book.user_pres %>
 				<%= simple_form_for @noti do |f| %>
-				<%= "Devolver?" %>
 	  		<%= hidden_field_tag(:description, "Devolver Libro") %>
 		  	<%= hidden_field_tag(:book_id, @book.id) %>
 		  	<%= hidden_field_tag(:receptor, @book.user_id) %>
 	  		<%= hidden_field_tag(:tipo, 2) %>
-  			<%= f.submit 'Si' %>
-			<% end %>
+	  		<%= hidden_field_tag(:disponibilidad, true) %>
+  			<%= f.submit 'Devolver Libro' %>
 			<% end %>
 		<% end %>
+	<% end %>
 
 		<p>
 		<%= simple_form_for @review do |f| %>

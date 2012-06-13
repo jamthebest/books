@@ -3,8 +3,8 @@
 	<% if @notifications %>
 		<% @notifications.each do |noti|%>
 			<li> 
-				<%= (noti.description.slice(0..10) + (!noti.leido ? " (Nuevo)" : "" )) %>
-				<%= "de #{User.find(noti.user_id)}" %>
+				<%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %>
+				<%= "de #{User.find(noti.user_id).username}" %>
 				<%= link_to "Ver", noti%>
 				<%= link_to "Borrar", noti, :method=> :delete, :confirm=> "Estas Seguro??"%>
 			</li>

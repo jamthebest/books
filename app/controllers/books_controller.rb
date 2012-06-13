@@ -58,22 +58,37 @@ class BooksController < ApplicationController
   end
 
   def update
-  	if current_user.id == Book.find(params[:id]).user_id || params[:disponibilidad]
-			@book=Book.new(params[:book])
-			@book[:user_pres] = (params[:disponibilidad] ? current_user.id : 0)
+  	if params[:noti]
+			@book = Book.find(params[:id])
+			@book[:user_pres] = params[:user_pres].to_i
+
 			respond_to do |format|
 				if @book.update_attributes(params[:book])
-					format.html { redirect_to @book, notice: 'Libro Actualizado!.' }
-	        format.json { render json: @book, status: :created, location: @book }
+					format.html { redirect_to @book, notice: 'Libro Prestado!.' }
+		      format.json { render json: @book, status: :created, location: @book }
 				else
 					format.html { render action: "new" }
-	        format.json { render json: @book.errors, status: :unprocessable_entity }
+		      format.json { render json: @book.errors, status: :unprocessable_entity }
 				end
 			end
 		else
-      flash[:error] = "No puedes modificar las propiedades de este Libro!"
-      redirect_to @book
-    end
+		 	if current_user.id == Book.find(params[:id]).user_id
+				@book=Book.new(params[:book])
+				@book[:user_pres] = 0
+				respond_to do |format|
+					if @book.update_attributes(params[:book])
+						format.html { redirect_to @book, notice: 'Libro Actualizado!.' }
+		        format.json { render json: @book, status: :created, location: @book }
+					else
+						format.html { render action: "new" }
+		        format.json { render json: @book.errors, status: :unprocessable_entity }
+					end
+				end
+			else
+		    flash[:error] = "No puedes modificar las propiedades de este Libro!"
+		    redirect_to @book
+		  end
+		end
   end
 
   def destroy

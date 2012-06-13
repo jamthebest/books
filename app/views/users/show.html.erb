@@ -1,24 +1,41 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-<p>
   <b>Username:</b>
   <%= @user.username %>
 </p>
 
-<%= link_to 'Editar', edit_user_path(@user) %> |
-<%= link_to 'Atrás', users_path %>
-	<%= simple_form_for @comment do |f| %>
+
+<% if logged_in? && current_user.id == @user.id %>
+	<%= link_to 'Editar', edit_user_path(@user) %> |
+	<%= link_to 'Atrás', users_path %>
+	<h3>Mis Libros:</h3>
+	<ul>
+		<%(Book.where user_id: @user.id).each do |book|%>
+			<li><%= link_to "#{book.titulo}", book_path(book.id) %></li>
+		<% end %>
+	</ul>
+<%end%>
+<% if logged_in? && current_user.id != @user.id %>
+	<p><strong>Nombre:</strong> <%=@user.nombre%> <%=@user.apellido%> <br>
+		<strong>Fecha de Nacimiento:</strong> <%=@user.fecha_nac.strftime("%d-%m-%Y")%> <br>
+		<strong>E-mail:</strong> <%=@user.email%></p>
+		<h3>Libros:</h3>
+		<ul>
+			<%(Book.where user_id: @user.id).each do |book|%>
+				<li><%= link_to "#{book.titulo}", book_path(book.id) %></li>
+			<% end %>
+		</ul>
+	<br><%= simple_form_for @comment do |f| %>
 		<%= "Agregue un comentario acerca de este usuario!" %>
- 		<%= f.input :contenido, :as => :text %>
+ 		<%= f.input :contenido, :as => :text, :label => false %>
  		<%= hidden_field_tag(:perfil, @user.id) %>
- 		<%= f.submit %>
+ 		<%= f.submit 'Comentar'%>
 	<% end %>
+<% end %>
+<h3>Comentarios:</h3>
 <%(Comentario.where perfil: @user.id).sort{|x,y| x.created_at <=> y.created_at}.each do |comment|%>
 	<ul id="comment_list">
-		<li><p><h4><%= "#{User.find(comment.user_id).username} escribió:" %></h4></p></li>
+		<li><p><h4><%= link_to "#{User.find(comment.user_id).username}", users_path(@user.id) %> escribió</h4></p></li>
 		<p><h4><%= comment.contenido %></h4></p>
 	</ul>
 <% end %>

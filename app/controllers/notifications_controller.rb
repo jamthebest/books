@@ -14,22 +14,13 @@ class NotificationsController < ApplicationController
 
   def show
     @notification = Notification.find(params[:id])
-    if current_user.id == @notification.receptor
-      @book = Book.find(@notification.book_id)
-      @notification[:leido] = true
-      respond_to do |format|
-        if @notification.update_attributes(params[:notification])
-          format.html { redirect_to @notification }
-          format.json { render json: @notification, status: :created, location: @notification }
-        else
-          format.html { redirect_to notifications_path, errors: 'Error Al leer!' }
-          format.json { render json: @notification.errors, status: :unprocessable_entity }
-        end
-      end
-    else
-      flash[:error] = "Esta notificacion no te pertenece!"
-      redirect_to login_path
+    @book = Book.find(@notification.book_id)
+    @notification[:leido] = true
+    @noti = Notification.new
+    if params[:disponibilidad]
+      @book[:user_pres] = params[:user_pres].to_i
     end
+    @notification.update_attributes(params[:notification])
   end
 
   def new
@@ -43,15 +34,16 @@ class NotificationsController < ApplicationController
   def create
     if logged_in?
       @notification = Notification.new(params[:notification])
-      @notification[:book_id] = params[:book].to_i
+      @notification[:description] = params[:description]
+      @notification[:book_id] = params[:book_id].to_i
       @notification[:receptor] = params[:receptor].to_i
       @notification[:user_id] = current_user.id
       @notification[:tipo] = params[:tipo].to_i #Tipos: 1=>Prestamo, 2=>Devolucion, 3=>Recordatorio
       @notification[:leido] = false
       respond_to do |format|
         if @notification.save
-          format.html { redirect_to @notification, notice: 'Nueva Notificacion!.' }
-          format.json { render json: @notification, status: :created, location: @notification }
+          format.html { redirect_to books_path}
+          format.json { render json: books_path, status: :created, location: books_path }
         else
           format.html { render action: "new" }
           format.json { render json: @notification.errors, status: :unprocessable_entity }
