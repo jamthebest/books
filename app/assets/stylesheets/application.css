@@ -2,13 +2,45 @@ body {
 	font-family: times,arial, helvetica,sans-serif;
 	font-size: 24px;
 	line-height:1.4em;
-	background-color:#F2F2F2;
+	background-color:#DCC8B0;
 	margin:0;
 	padding:0;
 }
 
-ul {
+/*Comienza Aplication/Layouts*/
+ul{
 	float: right;
+}
+
+/*Home*/
+
+div.principal{
+	margin: 170px 0px 0px 80px;
+	padding: 0px 0px 0px 150px;
+	}
+div.texto{
+	float: right;
+	text-align: justify;
+	border-left: 1px solid #B6B6B6;
+	padding-left: 40px;
+	}
+b{ 	font-size: 14px	}
+p{ 	text-align: justify;	}
+h1{ 	font-size: 48px; 	}
+
+div#content1{ 	
+	margin: 200px 300px 0px 0px;
+	}
+
+/*All Books - index*/
+
+div.contenedor{
+	width: 850px;
+	height: 600px;
+	float: center;
+	background-image:url(pergamino.jpg);
+	border: 1px solid green;
+	
 }
 
 /*
