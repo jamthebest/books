@@ -6,17 +6,29 @@
     <%= submit_tag "Buscar", :titulo => nil %>
   </p>
 <% end %>
-<ol>
-	<% if @books %>
-		<% @books.each do |book|%>
-			<br><li> 
-				<%=book.titulo %>
-				<%=book.autor %>
-				<a class="btn btn-info" href=<%=book_path(book.id)%>><i class="icon-eye-open icon-black"></i> Mostrar </a>
-			</li>
-		<%end%>
-	<%end%>
+
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Autor</th>
+    <th>Dueño</th>
+    <th></th>
+    <th></th>
+  </tr>
+ <ol>
+<% if @books %>
+	<% @books.each do |book|%>
+	  <tr>
+	    <td><%=book.titulo %></td>
+	    <td><%=book.autor %></td>
+	    <td><%= link_to "#{User.find(book.user_id).username}", user_path(book.user_id) %></td>
+	    <td><a class="btn btn-info" href=<%=book_path(book.id)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
+	  </tr>
+	<% end %>
+<% end %>
 </ol>
+</table>
+
 
 <br>
 <a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br>

@@ -37,10 +37,23 @@ div#content1{
 
 div.contenedor{
 	background-image:url(pergamino.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	border: 1px solid green;
-	text-align: center;
+	background-repeat: repeat-y;
+	background-position: center top;
+	padding-top: 120px;
+	font-size: 130%;
+	text-align:center;
+}
+
+div.duenio{
+	height: 170px;
+}
+
+p.centro{
+	text-align:center;
+}
+
+div.review{
+	margin-top: 330px;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -2,7 +2,7 @@
 	<p>De: <%= "#{User.find(@notification.user_id).username}" %></p>
 	<p>Asunto: <%= @notification.description %></p>
 	<% if @notification.tipo == 1 %>
-		<p>El usuario <%= User.find(@notification.user_id).username %> desea que le prestes el libro <%= Book.find(@notification.book_id).titulo %>
+		<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> desea que le prestes el libro <%= Book.find(@notification.book_id).titulo %>
 		</p>
 		<% if Book.find(@notification.book_id).disponibilidad %>
 			<%= simple_form_for @book do |f| %>
@@ -12,12 +12,12 @@
 		  	<%= f.submit 'Prestar Libro'%>
 			<% end %>
 		<% else %>
-			<%= "No puedes prestar este libro porque ya lo tiene el usuario #{User.find(Book.find(@notification.book_id).user_id).username}!" %>
+			No puedes prestar este libro porque ya lo tiene el usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %>!
 		<% end %>
 
 	<%else%>
 		<% if @notification.tipo == 2 %>
-			<p>El usuario <%= User.find(@notification.user_id).username %> te devolvió el libro <%= Book.find(@notification.book_id).titulo %>?
+			<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> te devolvió el libro <%= Book.find(@notification.book_id).titulo %>?
 			</p>
 			<%= simple_form_for @book do |f| %>
 				<%= hidden_field_tag(:noti, true) %>
