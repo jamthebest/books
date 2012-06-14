@@ -1,4 +1,4 @@
-<h1>Listing users</h1>
+<h1>Usuarios</h1>
 
 <table>
   <tr>
@@ -13,14 +13,11 @@
   <tr>
     <td><%= user.email %></td>
     <td><%= user.username %></td>
-    <td><a class="btn btn-inverse" href=<%=user_path(user)%>> Show </a></td>
-    <td> <%= link_to 'Show', user %></td>
-    <td><a class="btn btn-inverse" href=<%=edit_user_path(user)%>> Edit </a></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><a class="btn btn-info" href=<%=user_path(user)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<a class="btn btn-inverse" href=<%=new_user_path%>> Nuevo Usario </a>
+<a class="btn btn-primary" href=<%=new_user_path%>> Nuevo Usario </a><br>
+<br><a class="btn btn-inverse" href=<%=root_url%>><i class="icon-arrow-left icon-white"></i> Atrás </a>

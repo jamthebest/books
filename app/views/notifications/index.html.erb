@@ -1,17 +1,27 @@
 <h1>Notificaciones</h1>
 <ol>
 	<% if @notifications %>
-		<% @notifications.each do |noti|%>
-			<li> 
-				<%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %>
-				<%= "de #{User.find(noti.user_id).username}" %>
-				<a class="btn btn-inverse" href=<%=notification_path(noti.id)%>> Ver </a>
-				<%= link_to "Borrar", noti, :method=> :delete, :confirm=> "Estas Seguro??"%>
-			</li>
-		<%end%>
+		<table>
+		  <tr>
+			 	<th>Descripción</th>
+			  <th></th>
+			  <th></th>
+			  <th></th>
+			</tr>
+
+			<% @notifications.each do |noti|%>
+			  <tr>
+				  <td><%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %><%= " de #{User.find(noti.user_id).username}" %></td>
+					<td><a class="btn btn-info" href=<%=notification_path(noti.id)%>> Ver </a></td>
+					<td><a class="btn btn-danger" data-confirm="Estás Seguro?" data-method="delete" href=<%=notification_path(noti) %>><i class="icon-trash icon-white"></i> Borrar </a></td>
+				</tr>
+			<%end%>
+		</table>
 	<%end%>
 </ol>
 
 <br />
 
-<a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a>
+<a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a><br>
+
+<br><a class="btn btn-inverse" href=<%=user_path(current_user.id)%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
