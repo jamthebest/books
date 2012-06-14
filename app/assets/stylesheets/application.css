@@ -8,17 +8,18 @@ body {
 }
 
 /*Comienza Aplication/Layouts*/
-ul{
+.ul rig{
 	float: right;
 }
 
 /*Home*/
 
 div.principal{
-	margin: 170px 0px 0px 80px;
-	padding: 0px 0px 0px 150px;
+	margin: 10% 0px 0px 5%;
+	padding: 0px 0px 0px 12%;
 	}
 div.texto{
+	margin-right: 25%;
 	float: right;
 	text-align: justify;
 	border-left: 1px solid #B6B6B6;
@@ -35,14 +36,12 @@ div#content1{
 /*All Books - index*/
 
 div.contenedor{
-	width: 850px;
-	height: 600px;
-	float: center;
 	background-image:url(pergamino.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
 	border: 1px solid green;
-	
+	text-align: center;
 }
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

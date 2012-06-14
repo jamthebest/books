@@ -1,10 +1,4 @@
-<%(Review.where book_id: @book.id).sort{|x,y| x.created_at <=> y.created_at}.each do |review|%>
-	<ul id="review_list">
-		<li><h4><%= "#{User.find(review.user_id).username} escribió:" %></h4>
-			<p><h5><%= review.contenido %></h5></p>
-		</li>
-	</ul>
-<% end %>
+<div class="contenedor">
 <p>
 	<p>Dueño: <%= "#{User.find(@book.user_id).username}" %></p>
 	<p>Título: <%=@book.titulo%></p>
@@ -51,5 +45,13 @@
 	<% end %>
 </p>
 
-<a class="btn btn-inverse" href=<%=books_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
-
+<a class="btn btn-inverse" href=<%=books_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a><br>
+<br> <h3>Reseñas</h3><br>
+<%(Review.where book_id: @book.id).sort{|x,y| x.created_at <=> y.created_at}.each do |review|%>
+	<ul id="review_list">
+		<li><h4><%= "#{User.find(review.user_id).username} escribió:" %></h4>
+			<p><h5><%= review.contenido %></h5></p>
+		</li>
+	</ul>
+<% end %>
+</div>

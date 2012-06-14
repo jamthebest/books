@@ -10,32 +10,28 @@
  	<link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
 <body>
-
-	<div class="navbar">  
-		<div class="navbar-inner">	
-		<div class="container">	
-
-		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </a>
-
-		<a class="brand" href=<%=root_path%>>
-  		<b>Book Store</b>
-		</a>
-
-		<ul class="nav">
-			<% unless logged_in? %>
-  			<li><a href=<%=signup_path%>> <b>Create an account</b> </a></li>
-  			<li><a href=<%=login_path%>> <b>Log In</b> </a></li>
-  		<% else %>
-  			<li><a href=""> <b>Logged in as <%= current_user.username %></b> </a></li>
-  			<li><a href=<%=logout_path%>> <b>Log out</b> </a></li>
-  		<%end%>
-		</ul>
-
-		</div>
-		</div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">Book Store</a>
+        <div class="nav-collapse">
+            <ul class="nav pull-right">
+              <% unless logged_in? %>
+                <li><a href=<%=signup_path%>> <b>Crear Cuenta</b> </a></li>
+                <li><a href=<%=login_path%>> <b>Autenticarse</b> </a></li>
+              <% else %>
+                <li><a href=""> <b><%= current_user.username %></b> </a></li>
+                <li><a href=<%=logout_path%>> <b>Salir</b> </a></li>
+              <%end%>
+            </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
 	<div class="container">
