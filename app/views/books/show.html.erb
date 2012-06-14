@@ -14,7 +14,7 @@
 		  	<%= hidden_field_tag(:book_id, @book.id) %>
 		  	<%= hidden_field_tag(:receptor, @book.user_id) %>
 	  		<%= hidden_field_tag(:tipo, 1) %>
-  			<%= f.submit 'Pedir Prestado' %>
+  			<input class="btn btn-success" type="submit" value="Pedir Prestado">
 			<% end %>
 		<% else %>
 			<% if current_user.id == @book.user_pres %>
@@ -24,7 +24,7 @@
 		  	<%= hidden_field_tag(:receptor, @book.user_id) %>
 	  		<%= hidden_field_tag(:tipo, 2) %>
 	  		<%= hidden_field_tag(:disponibilidad, true) %>
-  			<%= f.submit 'Devolver Libro' %>
+  			<input class="btn btn-success" type="submit" value="Devolver Libro">
 			<% end %>
 		<% end %>
 	<% end %>
@@ -32,9 +32,9 @@
 		<p>
 		<%= simple_form_for @review do |f| %>
 			<%= "Agregue la primera reseña!" %>
-	  	<%= f.input :contenido, :as => :text, :label => false %>
+			<br><br><textarea class="text optional" cols="10" id="comentario_content" name="review[contenido]" rows="4"></textarea><br>
   		<%= hidden_field_tag(:book_id, @book.id) %>
-  		<%= f.submit 'Reseñar' %>
+  		<input class="btn btn-primary" type="submit" value="Reseñar">
 		<% end %>
 		</p>
 	<% end %>

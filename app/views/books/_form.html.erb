@@ -1,16 +1,12 @@
-
-
 <%=simple_form_for @book do |f|%>
-		
 	<% if @book.errors.any?%>
-		<h2>There were errors!</h2>
-		<ul>
+		<div class="alert alert-error">
+      <a class="close" data-dismiss="alert">×</a>
+			<h3>There were errors!</h3>
 			<% @book.errors.full_messages.each do |msg| %>
-				<li>
-					<%= msg %>
-				</li>
+				<%= msg %><br>
 			<% end %>
-		</ul>
+		</div>
 	<%end%>
 
 	<p>

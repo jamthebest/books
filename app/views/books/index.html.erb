@@ -1,6 +1,4 @@
-
-
-<h1>All Books</h1>
+<h1>All Books</h1><br>
 <% form_tag books_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -10,17 +8,18 @@
 <ol>
 	<% if @books %>
 		<% @books.each do |book|%>
-			<li> 
+			<br><li> 
 				<%=book.titulo %>
 				<%=book.autor %>
-				<a class="btn btn-inverse" href=<%=book_path(book.id)%>> Mostrar </a>
-				<a class="btn btn-inverse" href=<%=book_path(book.id)%>> Borrar </a>
-				<%= link_to "Borrar", book, :method=> :delete, :confirm=> "Estas Seguro??"%>
-				<a class="btn btn-inverse" href=<%=edit_book_path(book.id)%>> Editar </a>
+				<a class="btn btn-inverse" href=<%=book_path(book.id)%>><i class="icon-eye-open icon-white"></i> Mostrar </a>
+				<% if logged_in? && current_user.id == book.user_id %>
+					<a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=book_path(book.id)%>><i class="icon-trash icon-white"></i> Borrar </a>
+					<a class="btn btn-inverse" href=<%=edit_book_path(book.id)%>><i class="icon-edit icon-white"></i> Editar </a>
+				<% end %>
 			</li>
 		<%end%>
 	<%end%>
 </ol>
 
-<br />
+<br>
 <a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a>
