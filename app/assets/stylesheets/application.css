@@ -44,25 +44,39 @@ div.icono{
 
 /*Book - show*/
 
-div.contenedor{
-	background-image:url(pergamino.jpg);
-	background-repeat: repeat-y;
+div.arriba,div.abajo,div.centro{
+	background-repeat: no-repeat;
 	background-position: center top;
-	padding-top: 120px;
 	font-size: 130%;
 	text-align:center;
+	border: 0px solid black;
 }
+div.arriba{
+	background-image:url(arriba.jpg);
+	padding-top: 120px;
+	margin-left: 22px;
+	margin-bottom: 0%;
+	padding-bottom: 0%;
+}
+div.centro{
+	background-image:url(Body.jpg);
+	background-repeat: repeat-y;
+	height: 1120px;
+	margin-top: -10px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-left: 37px;
 
-div.duenio{
-	height: 170px;
+}
+div.abajo{
+	background-image:url(abajo.jpg);
+	background-position:center bottom;
+	height: 120px;
+	margin-top: -48px;
 }
 
 p.centro{
 	text-align:center;
-}
-
-div.review{
-	margin-top: 330px;
 }
 
 /*User - show*/

@@ -1,4 +1,6 @@
 <div class="contenedor">
+<div class="arriba"></div>
+<div class="centro">
 <p>
 	<p class="centro"><strong>Dueño:</strong> <%= "#{User.find(@book.user_id).username}" %></p>
 	<p class="centro"><strong>Título:</strong> <%=@book.titulo%></p>
@@ -57,4 +59,6 @@
 	</ul>
 <% end %>
 </div>
+</div>
+<div class="abajo"></div>
 </div>

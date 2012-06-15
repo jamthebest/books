@@ -4,7 +4,8 @@
 		<table class="table table-striped">
 		  <thead>
 			  <tr>
-				 	<th>Descripción</th>
+				  <th>Descripción</th>
+				  <th>De</th>
 				  <th></th>
 				  <th></th>
 				  <th></th>
@@ -13,7 +14,8 @@
 			<% @notifications.each do |noti|%>
 			<tbody>
 			  <tr>
-				  <td><strong><%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %><%= " de #{User.find(noti.user_id).username}" %></strong></td>
+				  <td><strong><%= (noti.description + (!noti.leido ? " (Nuevo)" : "" )) %></strong></td>
+				  <td><strong><%= "#{User.find(noti.user_id).username}" %></strong></td>
 					<td><a class="btn btn-info" href=<%=notification_path(noti.id)%>><i class="icon-search icon-white"></i> Ver </a></td>
 					<td><a class="btn btn-danger" data-confirm="Estás Seguro?" data-method="delete" href=<%=notification_path(noti) %>><i class="icon-trash icon-white"></i> Borrar </a></td>
 				</tr>
