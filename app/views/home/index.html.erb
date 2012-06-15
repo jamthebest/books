@@ -4,14 +4,12 @@
 	<p>
 		<b>Book Store</b> es un servicio de intercambio de libros</br> entre usuarios, donde cada usuario puede disponer de</br> los libros que los demás usuarios están dispuestos a</br> prestar. Cada usuario puede poner a disposición de los</br> demás los libros que posea, que desea compartir y por</br> el tiempo que está dispuesto a prestar.
 	</p>
-	<p> 
-		Este sistema dispone de un analizador de reputación</br> donde se analiza al usuario y se establece un rango</br> donde se conoce si el usuario es confiable o nó. Este</br> rango se establece conforme al tiempo de devolución</br> que el usuario haga de los libros.
-	</p>
 	<p>
 		Cada usuario puede hacer una reseña de los libros que</br> haya utilizado o de los que le parecen que serían una</br> buena elección al momento de utilizar para su lectura.
 	</p>
 	</div>
 	<h1>Book Store</h1>
+	<div class="icono"></div>
 	<% form_tag books_path, :method => 'get' do %>
   	<p>
     	<%= text_field_tag :search, params[:search] %>
@@ -19,7 +17,7 @@
   	</p>
 	<% end %>
 	<div class="container" id="content1">
-		<a class="btn btn-inverse" href=<%=books_path%>> Ver Libros </a>
-		<a class="btn btn-inverse" href=<%=users_path%>> Ver Usuarios </a>
+		<a class="btn btn-info" href=<%=books_path%>><i class="icon-eye-open"></i> Ver Libros </a>
+		<a class="btn btn-info" href=<%=users_path%>><i class="icon-eye-open"></i> Ver Usuarios </a>
 	</div>
 </div>

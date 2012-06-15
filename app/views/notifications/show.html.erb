@@ -1,15 +1,15 @@
 <p>
-	<p>De: <%= "#{User.find(@notification.user_id).username}" %></p>
-	<p>Asunto: <%= @notification.description %></p>
-	<% if @notification.tipo == 1 %>
-		<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> desea que le prestes el libro <%= Book.find(@notification.book_id).titulo %>
+	<p><h3>De: <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %></h3></p>
+	<p><h3>Asunto:</h3> <h4><%= @notification.description %></h4></p>
+	<br><h3><% if @notification.tipo == 1 %>
+		<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> desea que le prestes el libro <%= link_to "#{Book.find(@notification.book_id).titulo}", book_path(@notification.book_id) %>
 		</p>
 		<% if Book.find(@notification.book_id).disponibilidad %>
 			<%= simple_form_for @book do |f| %>
 				<%= hidden_field_tag(:noti, true) %>
 				<%= hidden_field_tag(:disponibilidad, false) %>
-				<%= hidden_field_tag(:user_pres, @notification.user_id) %>
-		  	<%= f.submit 'Prestar Libro'%>
+				<%= hidden_field_tag(:user_pres, @notification.user_id) %><br>
+				<input class="btn btn-success" type="submit" value="Prestar Libro">
 			<% end %>
 		<% else %>
 			No puedes prestar este libro porque ya lo tiene el usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %>!
@@ -17,15 +17,16 @@
 
 	<%else%>
 		<% if @notification.tipo == 2 %>
-			<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> te devolvió el libro <%= Book.find(@notification.book_id).titulo %>?
+			<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> te devolvió el libro <%= link_to "#{Book.find(@notification.book_id).titulo}", book_path(@notification.book_id) %>?
 			</p>
 			<%= simple_form_for @book do |f| %>
 				<%= hidden_field_tag(:noti, true) %>
 				<%= hidden_field_tag(:disponibilidad, true) %>
-		  	<%= hidden_field_tag(:user_pres, 0) %>
-			 	<%= f.submit 'Si'%>
+		  	<%= hidden_field_tag(:user_pres, 0) %><br>
+		  	<input class="btn btn-success" type="submit" value="Si">
 			<% end %>
 		<% end %>
 	<% end %>
-	<a class="btn btn-inverse" href=<%=notifications_path%>> Atrás </a>
+</h3><br>
+	<a class="btn btn-inverse" href=<%=notifications_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
 </p>

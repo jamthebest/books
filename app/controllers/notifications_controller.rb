@@ -42,6 +42,13 @@ class NotificationsController < ApplicationController
       @notification[:leido] = false
       respond_to do |format|
         if @notification.save
+          if params[:tipo].to_i == 1
+            flash[:notice] = "Libro Solicitado!\nEspera la Respuesta."
+          else
+            if params[:tipo]-to_i == 2
+              flash[:notice] = "Libro Disponible!\nYa tienes el libro en tu Inventario."
+            end
+          end
           format.html { redirect_to books_path}
           format.json { render json: books_path, status: :created, location: books_path }
         else

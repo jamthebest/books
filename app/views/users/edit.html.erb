@@ -2,5 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<a class="btn btn-info" href=<%=user_path(@user.id)%>><i class="icon-search icon-white"></i> Mostrar </a>

@@ -1,32 +1,33 @@
+<div class="user">
 <p id="notice"><%= notice %></p>
 <% if logged_in? && current_user.id == @user.id %>
 	<a class="btn btn-warning" href=<%=notifications_path%>><i class="icon-search icon-white"></i> Notificaciones </a>
 <%end%>
 <p>
-  <b>Username:</b>
+  <br><strong>Username:</strong>
   <%= @user.username %>
 </p>
 
 
 <% if logged_in? && current_user.id == @user.id %>
-		<a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=user_path(@user.id)%>><i class="icon-trash icon-white"></i> Borrar Usuario </a>
-		<a class="btn btn-success" href=<%=edit_user_path(@user.id)%>><i class="icon-pencil icon-white"></i> Editar Perfil </a>
-	<h3>Mis Libros:</h3>
+		<br><a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=user_path(@user.id)%>><i class="icon-trash icon-white"></i> Borrar Usuario </a>
+		<a class="btn btn-success" href=<%=edit_user_path(@user.id)%>><i class="icon-pencil icon-white"></i> Editar Perfil </a><br>
+	<br><p><h3>Mis Libros:</h3></p>
 	<ol>
 		<%(Book.where user_id: @user.id).each do |book|%>
-			<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li>
+			<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li><br>
 		<% end %>
 	</ol>
 	<br><a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br><br>
 <%end%>
-<% if !current_user || current_user.id != @user.id %>
-	<p><strong>Nombre:</strong> <%=@user.nombre%> <%=@user.apellido%> <br>
-		<strong>Fecha de Nacimiento:</strong> <%=@user.fecha_nac.strftime("%d-%m-%Y")%> <br>
-		<strong>E-mail:</strong> <%=@user.email%></p>
-		<h3>Libros:</h3>
+<% if !current_user || current_user.id != @user.id %></p>
+	<p><strong>Nombre:</strong> <%=@user.nombre%> <%=@user.apellido%></p>
+		<p><strong>Fecha de Nacimiento:</strong> <%=@user.fecha_nac.strftime("%d-%m-%Y")%></p>
+		<p><strong>E-mail:</strong> <%=@user.email%>
+		<br><br><p><h3>Libros:</h3></p>
 		<ol>
 			<%(Book.where user_id: @user.id).each do |book|%>
-				<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li>
+				<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li><br>
 			<% end %>
 		</ol>
 	<br><%= simple_form_for @comment do |f| %>
@@ -44,3 +45,4 @@
 		<p><h4><%= comment.contenido %></h4></p>
 	</ol>
 <% end %>
+</div>

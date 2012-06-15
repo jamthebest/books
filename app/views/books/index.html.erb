@@ -7,31 +7,33 @@
   </p>
 <% end %>
 
-<table>
-  <tr>
-    <th>Título</th>
-    <th>Autor</th>
-    <th>Dueño</th>
-    <th></th>
-    <th></th>
-  </tr>
- <ol>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Dueño</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 <% if @books %>
 	<% @books.each do |book|%>
+  <tbody>
 	  <tr>
 	    <td><%=book.titulo %></td>
 	    <td><%=book.autor %></td>
 	    <td><%= link_to "#{User.find(book.user_id).username}", user_path(book.user_id) %></td>
 	    <td><a class="btn btn-info" href=<%=book_path(book.id)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
 	  </tr>
+  </tbody>
 	<% end %>
 <% end %>
-</ol>
 </table>
 
 
 <br>
 <a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br>
 <br><a class="btn btn-inverse" href=<%=root_url%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
-<a class="btn btn-inverse" href=<%=new_book_path%>> Agregar Libro </a>
 </div>

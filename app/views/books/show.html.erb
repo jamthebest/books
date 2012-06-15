@@ -1,13 +1,13 @@
 <div class="contenedor">
 <p>
-	<p class="centro">Dueño: <%= "#{User.find(@book.user_id).username}" %></p>
-	<p class="centro">Título: <%=@book.titulo%></p>
-	<p class="centro">Autor: <%=@book.autor%></p>
-	<p class="centro">Tipo: <%= @book.tipo %></p>
-	<p class="centro">Edición: <%= @book.edicion %></p>
-	<p class="centro">Descripción: <%= @book.descripcion %></p>
-	<p class="centro">Tiempo de préstamo: <%= "#{@book.t_prestamo} #{@book.prestamo ? "Dias" : "Meses" }" %></p>
-	<p class="centro">Disponible: <%= "#{@book.disponibilidad ? "Si" : "No" }" %></p>
+	<p class="centro"><strong>Dueño:</strong> <%= "#{User.find(@book.user_id).username}" %></p>
+	<p class="centro"><strong>Título:</strong> <%=@book.titulo%></p>
+	<p class="centro"><strong>Autor:</strong> <%=@book.autor%></p>
+	<p class="centro"><strong>Tipo:</strong> <%= @book.tipo %></p>
+	<p class="centro"><strong>Edición:</strong> <%= @book.edicion %></p>
+	<p class="centro"><strong>Descripción:</strong> <%= @book.descripcion %></p>
+	<p class="centro"><strong>Tiempo de préstamo:</strong> <%= "#{@book.t_prestamo} #{@book.prestamo ? "Dias" : "Meses" }" %></p>
+	<p class="centro"><strong>Disponible:</strong> <%= "#{@book.disponibilidad ? "Si" : "No" }" %></p><br>
 	<% if logged_in? && current_user.id == @book.user_id %>
 		<a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=book_path(@book.id)%>><i class="icon-trash icon-white"></i> Borrar </a>
 		<a class="btn btn-success" href=<%=edit_book_path(@book.id)%>><i class="icon-pencil icon-white"></i> Editar </a>

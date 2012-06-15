@@ -1,20 +1,23 @@
-<h1>Usuarios</h1>
+<h1>Usuarios</h1><br>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Username</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Username</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 <% @users.each do |user| %>
+<tbody>
   <tr>
     <td><%= user.email %></td>
     <td><%= user.username %></td>
     <td><a class="btn btn-info" href=<%=user_path(user)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
   </tr>
+</tbody>
 <% end %>
 </table>
 
