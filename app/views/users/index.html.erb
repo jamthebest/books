@@ -5,7 +5,7 @@
     <tr>
       <th>Email</th>
       <th>Username</th>
-      <th></th>
+      <th>Nombre</th>
       <th></th>
       <th></th>
     </tr>
@@ -15,6 +15,7 @@
   <tr>
     <td><%= user.email %></td>
     <td><%= user.username %></td>
+    <td><%= user.nombre %> <%= user.apellido %></td>
     <td><a class="btn btn-info" href=<%=user_path(user)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
   </tr>
 </tbody>
