@@ -83,6 +83,7 @@ div.user{
 	font-size: 120%;
 }
 
+/*Estos metodos sirven para User - Notificaiones y Books*/
 h1.titulo{  	text-align: center;
 		padding: 2% 0px 1% 0px	}
 
@@ -100,3 +101,19 @@ div.final{
 	padding: 0px 0% 62px 0%;
 	background-image:url(final.jpg);
 }
+
+/* Autenticación */
+div.autent{
+	background-image:url(unico.jpg);
+	background-repeat: repeat-y;
+	padding: 10px 10% 10px 10%;
+}
+
+p.titulo {  	width: 600px;
+	 text-align: center;
+		margin-top: 5%;
+		padding: 0% 0px 1% 0px;
+		font-size: 180%;	
+		background-color: #F2F2F2;
+		border-radius: 7px;
+	}

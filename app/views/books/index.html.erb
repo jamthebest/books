@@ -1,12 +1,13 @@
-<div class="c">
-<h1>All Books</h1><br>
+<div class="inicio">
+  <h1 class="titulo">All Books</h1><br>
+</div>
 <% form_tag books_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Buscar", :titulo => nil %>
   </p>
 <% end %>
-
+<div class="tabla">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -34,6 +35,10 @@
 
 
 <br>
-<a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br>
 <br><a class="btn btn-inverse" href=<%=root_url%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
+<a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br>
+<br/>
+  <br />
+  <br />
 </div>
+<div class="final"><br></div>

@@ -1,13 +1,14 @@
-<div class="user">
-<p id="notice"><%= notice %></p>
-<% if logged_in? && current_user.id == @user.id %>
-	<a class="btn btn-warning" href=<%=notifications_path%>><i class="icon-search icon-white"></i> Notificaciones </a>
-<%end%>
-<p>
+<div class="autent" class="user">
+
+
+<p class="titulo">
   <br><strong>Username:</strong>
   <%= @user.username %>
 </p>
 
+<% if logged_in? && current_user.id == @user.id %>
+	<a class="btn btn-warning" href=<%=notifications_path%>><i class="icon-search icon-white"></i> Notificaciones </a>
+<%end%><br><br>
 
 <% if logged_in? && current_user.id == @user.id %>
 		<br><a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=user_path(@user.id)%>><i class="icon-trash icon-white"></i> Borrar Usuario </a>
