@@ -16,7 +16,7 @@
   <%= f.label :sexo%>
   <%= f.collection_radio_buttons :sexo, [[true, 'Hombre'] ,[false, 'Mujer']], :first, :last, :checked => true %>
   <%= f.input :fecha_nac, :label =>'Fecha de Nacimiento', :as => :date, :start_year => Date.today.year - 90,
-	   			:end_year => Date.today.year - 12, 
+	   			:end_year => Date.today.year, 
           :order => [:day, :month, :year] %>
   <%= f.input :username %>
   <%= f.input :email %>
