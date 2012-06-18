@@ -59,9 +59,9 @@ div.arriba{
 div.centro{
 	background-image:url(Body.jpg);
 	background-repeat: repeat-y;
-	height: 1120px;
+	
 	margin-top: -10px;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 	padding-top: 20px;
 	margin-left: 37px;
 

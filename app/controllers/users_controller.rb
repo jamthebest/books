@@ -10,11 +10,8 @@ def index
 
   def show
     @user = User.find(params[:id])
-#<<<<<<< HEAD
 		@comment = Comentario.new
-#=======
     @comment = Comentario.new
-#>>>>>>> 2c05d65856763c0beb1797f8206b8c873954ccdb
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -36,11 +33,8 @@ def index
     respond_to do |format|
      if @user.save
         session[:user_id] = @user.id
-#<<<<<<< HEAD
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-#=======
         format.html { redirect_to @user, notice: 'Usuario Creado!' }
-#>>>>>>> 2c05d65856763c0beb1797f8206b8c873954ccdb
         format.json { render json: @user, status: :created, location: @user }
      else
         format.html { render action: "new" }
