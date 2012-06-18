@@ -6,44 +6,69 @@
   <%= @user.username %>
 </p>
 
-<% if logged_in? && current_user.id == @user.id %>
-	<a class="btn btn-warning" href=<%=notifications_path%>><i class="icon-search icon-white"></i> Notificaciones </a>
-<%end%><br><br>
+<div class="noti">
+	<% if logged_in? && current_user.id == @user.id %>
+		<a class="btn btn-warning" href=<%=notifications_path%>><i class="icon-search icon-white"></i> Notificaciones </a>
+	<%end%><br><br>
+</div>
+
+<div class="libros">
 
 <% if logged_in? && current_user.id == @user.id %>
-		<br><a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=user_path(@user.id)%>><i class="icon-trash icon-white"></i> Borrar Usuario </a>
-		<a class="btn btn-success" href=<%=edit_user_path(@user.id)%>><i class="icon-pencil icon-white"></i> Editar Perfil </a><br>
-	<br><p><h3>Mis Libros:</h3></p>
-	<ol>
-		<%(Book.where user_id: @user.id).each do |book|%>
-			<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li><br>
-		<% end %>
-	</ol>
-	<br><a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br><br>
-<%end%>
-<% if !current_user || current_user.id != @user.id %></p>
-	<p><strong>Nombre:</strong> <%=@user.nombre%> <%=@user.apellido%></p>
-		<p><strong>Fecha de Nacimiento:</strong> <%=@user.fecha_nac.strftime("%d-%m-%Y")%></p>
-		<p><strong>E-mail:</strong> <%=@user.email%>
-		<br><br><p><h3>Libros:</h3></p>
+		<br>
+		<a class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" href=<%=user_path(@user.id)%>><i class="icon-trash icon-white"></i> Borrar Usuario </a>
+		<a class="btn btn-success" href=<%=edit_user_path(@user.id)%>><i class="icon-pencil icon-white"></i> Editar Perfil </a>
+		<br><hr>
+	<p><h3>Mis Libros:</h3></p>
+
+	<div class="lista">
+
 		<ol>
 			<%(Book.where user_id: @user.id).each do |book|%>
 				<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li><br>
 			<% end %>
 		</ol>
+
+	</div>
+
+	<br>
+	<a class="btn btn-inverse" href=<%=users_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
+	<a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br><br>
+<%end%>
+<hr>
+</div>
+
+<% if !current_user || current_user.id != @user.id %></p>
+	<p><strong>Nombre:</strong> <%=@user.nombre%> <%=@user.apellido%></p>
+		<p><strong>Fecha de Nacimiento:</strong> <%=@user.fecha_nac.strftime("%d-%m-%Y")%></p>
+		<p><strong>E-mail:</strong> <%=@user.email%><hr>
+		<p><h3>Libros:</h3></p>
+		<div class="lista">	
+			<ol>
+				<%(Book.where user_id: @user.id).each do |book|%>
+					<li><h4><strong><%= link_to "#{book.titulo}", book_path(book.id) %></strong></h4></li><br>
+				<% end %>
+			</ol>
+		</div><hr>
 	<br><%= simple_form_for @comment do |f| %>
-		<%= "Agregue un comentario acerca de este usuario!" %>
+		<b><%= "Agregue un comentario acerca de este usuario!" %></b>
 		<br><br><textarea class="text optional" cols="10" id="comentario_content" name="comentario[contenido]" rows="4"></textarea><br>
  		<%= hidden_field_tag(:perfil, @user.id) %>
  		<input class="btn btn-primary" type="submit" value="Comentar">
 	<% end %>
 <% end %>
-<a class="btn btn-inverse" href=<%=users_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
-<br><br><h3>Comentarios:</h3>
-<%(Comentario.where perfil: @user.id).sort{|x,y| x.created_at <=> y.created_at}.each do |comment|%>
-	<ol id="comment_list">
-		<p><h4><%= link_to "#{User.find(comment.user_id).username}", user_path(comment.user_id) %> escribió</h4></p>
-		<p><h4><%= comment.contenido %></h4></p>
-	</ol>
-<% end %>
+
+<div class="cometar">
+
+	<br><h3>Comentarios:</h3>
+	<%(Comentario.where perfil: @user.id).sort{|x,y| x.created_at <=> y.created_at}.each do |comment|%>
+	
+		<div class="lista">
+			<ol id="comment_list">
+				<p><h4><%= link_to "#{User.find(comment.user_id).username}", user_path(comment.user_id) %> escribió</h4></p>
+				<p><h4><%= comment.contenido %></h4></p>
+			</ol>
+		</div>
+	<% end %>
+	<br><br>
 </div>

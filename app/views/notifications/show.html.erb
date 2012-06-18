@@ -1,7 +1,8 @@
+<div class="autent">
 <p>
-	<p><h3>De: <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %></h3></p>
+	<p><h3>De: <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %></h3></p><hr>
 	<p><h3>Asunto:</h3> <h4><%= @notification.description %></h4></p>
-	<br><h3><% if @notification.tipo == 1 %>
+	<h3><% if @notification.tipo == 1 %><hr>
 		<p>El usuario <%= link_to "#{User.find(@notification.user_id).username}", user_path(@notification.user_id) %> desea que le prestes el libro <%= link_to "#{Book.find(@notification.book_id).titulo}", book_path(@notification.book_id) %>
 		</p>
 		<% if Book.find(@notification.book_id).disponibilidad %>
@@ -27,6 +28,7 @@
 			<% end %>
 		<% end %>
 	<% end %>
-</h3><br>
+</h3><br><br><br>
 	<a class="btn btn-inverse" href=<%=notifications_path%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
 </p>
+</div>
