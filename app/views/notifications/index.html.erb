@@ -1,4 +1,8 @@
-<h1>Notificaciones</h1><br>
+<div class="inicio">
+	<h1 class="titulo">Notificaciones</h1><br>
+</div>
+
+<div class="tabla">
 <ol>
 	<% if @notifications %>
 		<table class="table table-striped">
@@ -26,7 +30,9 @@
 </ol>
 
 <br />
-
+<br>
+<a class="btn btn-inverse" href=<%=user_path(current_user.id)%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
 <a class="btn btn-primary" href=<%=new_book_path%>> Agregar Libro </a><br>
 
-<br><a class="btn btn-inverse" href=<%=user_path(current_user.id)%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
+</div>
+<div class="final"><br></div>

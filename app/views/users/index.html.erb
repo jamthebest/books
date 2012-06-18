@@ -1,27 +1,35 @@
-<h1>Usuarios</h1><br>
+<div class="inicio">
+  <h1 class="titulo">Usuarios</h1><br>
+</div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Nombre</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-<% @users.each do |user| %>
-<tbody>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.username %></td>
-    <td><%= user.nombre %> <%= user.apellido %></td>
-    <td><a class="btn btn-info" href=<%=user_path(user)%>><i class="icon-eye-open icon-black"></i> Mostrar </a></td>
-  </tr>
-</tbody>
-<% end %>
-</table>
+<div class="tabla">
 
-<br />
-<a class="btn btn-primary" href=<%=new_user_path%>> Nuevo Usario </a><br>
-<br><a class="btn btn-inverse" href=<%=root_url%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Nombre</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+    <tbody>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td><%= user.nombre %> <%= user.apellido %></td>
+        <td><a class="btn btn-info" href=<%=user_path(user)%>><i class="icon-eye-open icon-black"></i>  Mostrar </a></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+
+  <a class="btn btn-inverse" href=<%=root_url%>><i class="icon-arrow-left icon-white"></i> Atrás </a>
+  <a class="btn btn-primary" href=<%=new_user_path%>> Nuevo Usario </a>
+  <br/>
+  <br />
+  <br />
+</div>
+<div class="final"><br></div>

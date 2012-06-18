@@ -55,8 +55,6 @@ div.arriba{
 	background-image:url(arriba.jpg);
 	padding-top: 120px;
 	margin-left: 22px;
-	margin-bottom: 0%;
-	padding-bottom: 0%;
 }
 div.centro{
 	background-image:url(Body.jpg);
@@ -85,16 +83,20 @@ div.user{
 	font-size: 120%;
 }
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
-*/
+h1.titulo{  	text-align: center;
+		padding: 2% 0px 1% 0px	}
+
+div.inicio{
+	margin-top: 0px;
+	padding: 42px 0% 10px 13%;
+	background-image:url(inicio.jpg);
+}
+div.tabla{
+	background-image:url(cuerpo.jpg);
+	padding: 19px 3% 0px 13%;
+}
+div.final{
+	margin-top: 0px;
+	padding: 0px 0% 62px 0%;
+	background-image:url(final.jpg);
+}
