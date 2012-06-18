@@ -59,9 +59,8 @@ div.arriba{
 div.centro{
 	background-image:url(Body.jpg);
 	background-repeat: repeat-y;
-	
 	margin-top: -10px;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
 	padding-top: 20px;
 	margin-left: 37px;
 
@@ -102,7 +101,7 @@ div.final{
 	background-image:url(final.jpg);
 }
 
-/* Autenticación */
+/* Este metodo  sirve para Autenticación - Editar Usuario - Crear Usuario - Editar Libros,etc*/
 div.autent{
 	background-image:url(unico.jpg);
 	background-repeat: repeat-y;
@@ -110,10 +109,21 @@ div.autent{
 }
 
 p.titulo {  	width: 600px;
-	 text-align: center;
+		text-align: right;
 		margin-top: 5%;
-		padding: 0% 0px 1% 0px;
+		padding: 0% 10px 1% 0px;
 		font-size: 180%;	
 		background-color: #F2F2F2;
-		border-radius: 7px;
+		border-radius: 5px;
 	}
+
+/* Show de User*/
+hr{
+	width:  80%;
+	border: 1px solid gray;
+}
+
+div.noti{   float: right;
+	margin-right: 20%}
+
+div.lista{ 	margin-left: 15%;	}
